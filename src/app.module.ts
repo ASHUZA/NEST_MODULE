@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ContraceptionModule } from './contraception/contraception.module';
+import { ModeArriveeModule } from './mode-arrivee/mode-arrivee.module';
 import * as dotenv from 'dotenv';
 
 dotenv.config();
@@ -22,6 +23,7 @@ dotenv.config();
       synchronize: true,
     }),
     ContraceptionModule,
+    ModeArriveeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
