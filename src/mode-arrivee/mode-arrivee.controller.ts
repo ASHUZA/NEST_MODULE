@@ -3,7 +3,7 @@ import { NewModeArriveeDto } from './dto/new_mode_arrivee_dto';
 import { ModeArriveeEntity } from './entities/mode-arrivee.entity';
 import { ModeArriveeService } from './mode-arrivee.service';
 
-@Controller('mode-arrivee')
+@Controller('mode_arrivee')
 export class ModeArriveeController {
     constructor(private ModeArriveeService: ModeArriveeService) {}
 
