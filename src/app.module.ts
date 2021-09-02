@@ -8,6 +8,7 @@ import { ModeArriveeModule } from './mode-arrivee/mode-arrivee.module';
 import * as dotenv from 'dotenv';
 import { MotherConditionModule } from './mother-condition/mother-condition.module';
 import { UserGroupModule } from './user-group/user-group.module';
+import { ProvenancePlaceModule } from './provenance-place/provenance-place.module';
 
 dotenv.config();
 @Module({
@@ -28,6 +29,7 @@ dotenv.config();
     ModeArriveeModule,
     MotherConditionModule,
     UserGroupModule,
+    ProvenancePlaceModule,
   ],
   controllers: [AppController],
   providers: [AppService],
