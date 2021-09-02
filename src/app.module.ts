@@ -7,6 +7,7 @@ import { ContraceptionModule } from './contraception/contraception.module';
 import { ModeArriveeModule } from './mode-arrivee/mode-arrivee.module';
 import * as dotenv from 'dotenv';
 import { MotherConditionModule } from './mother-condition/mother-condition.module';
+import { UserGroupModule } from './user-group/user-group.module';
 
 dotenv.config();
 @Module({
@@ -26,6 +27,7 @@ dotenv.config();
     ContraceptionModule,
     ModeArriveeModule,
     MotherConditionModule,
+    UserGroupModule,
   ],
   controllers: [AppController],
   providers: [AppService],
