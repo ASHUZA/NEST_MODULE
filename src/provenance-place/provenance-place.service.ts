@@ -27,7 +27,6 @@ export class ProvenancePlaceService {
   }
 
   async addProvenancePlace(
-    id: number,
     ProvenancePlace: NewProvenancePlaceDto,
   ): Promise<ProvenancePlaceEntity> {
     return await this.provenancePlaceRepository.save(ProvenancePlace);
