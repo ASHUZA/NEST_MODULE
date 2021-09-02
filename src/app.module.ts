@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { ContraceptionModule } from './contraception/contraception.module';
 import { ModeArriveeModule } from './mode-arrivee/mode-arrivee.module';
 import * as dotenv from 'dotenv';
+import { MotherConditionModule } from './mother-condition/mother-condition.module';
 
 dotenv.config();
 @Module({
@@ -24,6 +25,7 @@ dotenv.config();
     }),
     ContraceptionModule,
     ModeArriveeModule,
+    MotherConditionModule,
   ],
   controllers: [AppController],
   providers: [AppService],
