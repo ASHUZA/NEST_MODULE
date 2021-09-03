@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('contraception')
+@Entity('niveau_social')
 export class SocioLevelEntity {
   @PrimaryGeneratedColumn({ name: 'id_niveau_socio' })
   id: number;
