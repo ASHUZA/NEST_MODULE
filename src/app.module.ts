@@ -9,6 +9,7 @@ import * as dotenv from 'dotenv';
 import { MotherConditionModule } from './mother-condition/mother-condition.module';
 import { UserGroupModule } from './user-group/user-group.module';
 import { ProvenancePlaceModule } from './provenance-place/provenance-place.module';
+import { SocioLevelModule } from './socio-level/socio-level.module';
 
 dotenv.config();
 @Module({
@@ -30,6 +31,7 @@ dotenv.config();
     MotherConditionModule,
     UserGroupModule,
     ProvenancePlaceModule,
+    SocioLevelModule,
   ],
   controllers: [AppController],
   providers: [AppService],
