@@ -11,6 +11,7 @@ import { UserGroupModule } from './user-group/user-group.module';
 import { ProvenancePlaceModule } from './provenance-place/provenance-place.module';
 import { SocioLevelModule } from './socio-level/socio-level.module';
 import { ReligionModule } from './religion/religion.module';
+import { TribeModule } from './tribe/tribe.module';
 
 dotenv.config();
 @Module({
@@ -34,6 +35,7 @@ dotenv.config();
     ProvenancePlaceModule,
     SocioLevelModule,
     ReligionModule,
+    TribeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
