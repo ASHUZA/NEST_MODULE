@@ -13,6 +13,7 @@ import { SocioLevelModule } from './socio-level/socio-level.module';
 import { ReligionModule } from './religion/religion.module';
 import { TribeModule } from './tribe/tribe.module';
 import { VisitDayModule } from './visit-day/visit-day.module';
+import { MaritalStatusModule } from './marital-status/marital-status.module';
 
 dotenv.config();
 @Module({
@@ -38,6 +39,7 @@ dotenv.config();
     ReligionModule,
     TribeModule,
     VisitDayModule,
+    MaritalStatusModule,
   ],
   controllers: [AppController],
   providers: [AppService],
