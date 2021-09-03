@@ -1,40 +1,46 @@
-import { Controller, Get, ParseIntPipe, Param, Patch, Delete, Body, Post } from '@nestjs/common';
-import { NewModeArriveeDto } from './dto/new_mode_arrivee_dto';
-import { ModeArriveeEntity } from './entities/mode-arrivee.entity';
-import { ModeArriveeService } from './mode-arrivee.service';
+import {
+  Controller,
+  Get,
+  ParseIntPipe,
+  Param,
+  Patch,
+  Delete,
+  Body,
+  Post,
+} from '@nestjs/common';
+import { NewArrivalModeDto } from './dto/new_mode_arrivee_dto';
+import { ArrivalModeEntity } from './entities/mode-arrivee.entity';
+import { ArrivalModeService } from './mode-arrivee.service';
 
 @Controller('mode_arrivee')
-export class ModeArriveeController {
-    constructor(private ModeArriveeService: ModeArriveeService) {}
+export class ArrivalModeController {
+  constructor(private ArrivalModeService: ArrivalModeService) {}
 
-    @Get()
-    async getAllModeArrivees(): Promise<ModeArriveeEntity[]>{
-        return await this.ModeArriveeService.getMode_arrivees();
-    }
-    @Get('/:id')
-    async getModeArriveeById(@Param('id', ParseIntPipe) id: number){
-        return await this.ModeArriveeService.getMode_arroiveeById(id);
-    }
-    @Post()
-    async addModeArrivee(
-        @Body() ModeArrivee: NewModeArriveeDto,
-    ): Promise<ModeArriveeEntity> {
-        return await this.ModeArriveeService.addModeArrivee(ModeArrivee);
-    }
-    @Patch('/:id')
-    async updateModeArrivee(
-        @Param('id', ParseIntPipe) id: number,
-        @Body() ModeArrivee: NewModeArriveeDto,
-    ): Promise<ModeArriveeEntity> {
-        return await this.ModeArriveeService.updateModeArrivee(
-            id,
-            ModeArrivee,
-        );
-    }
-    @Delete('/:id')
-    async deleteModeArrivee(
-        @Param('id', ParseIntPipe) id: number,
-    ): Promise<ModeArriveeEntity> {
-        return await this.ModeArriveeService.deleteModeArrivee(id);
-    }
+  @Get()
+  async getAllArrivalModes(): Promise<ArrivalModeEntity[]> {
+    return await this.ArrivalModeService.getMode_arrivees();
+  }
+  @Get('/:id')
+  async getArrivalModeById(@Param('id', ParseIntPipe) id: number) {
+    return await this.ArrivalModeService.getMode_arroiveeById(id);
+  }
+  @Post()
+  async addArrivalMode(
+    @Body() ArrivalMode: NewArrivalModeDto,
+  ): Promise<ArrivalModeEntity> {
+    return await this.ArrivalModeService.addArrivalMode(ArrivalMode);
+  }
+  @Patch('/:id')
+  async updateArrivalMode(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() ArrivalMode: NewArrivalModeDto,
+  ): Promise<ArrivalModeEntity> {
+    return await this.ArrivalModeService.updateArrivalMode(id, ArrivalMode);
+  }
+  @Delete('/:id')
+  async deleteArrivalMode(
+    @Param('id', ParseIntPipe) id: number,
+  ): Promise<ArrivalModeEntity> {
+    return await this.ArrivalModeService.deleteArrivalMode(id);
+  }
 }

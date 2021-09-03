@@ -10,26 +10,29 @@ export class ProvenancePlaceService {
     @InjectRepository(ProvenancePlaceEntity)
     private provenancePlaceRepository: Repository<ProvenancePlaceEntity>,
   ) {}
+
   async findProvenancePlaceById(id: number) {
     const provenancePlace = await this.provenancePlaceRepository.findOne(id);
     if (!provenancePlace) {
       throw new NotFoundException(
-        `Le lieu de provenance d'id ${id} n'existe pas !`,
+        `Le lieu de provenance d'id ${id} n'existe pas.`,
       );
     }
     return provenancePlace;
   }
-  async getProvenancePlace(): Promise<ProvenancePlaceEntity[]> {
+
+  async getProvenancePlaces(): Promise<ProvenancePlaceEntity[]> {
     return await this.provenancePlaceRepository.find();
   }
-  async getProvenancePlaceById(id: number): Promise<ProvenancePlaceEntity> {
+
+  async getProvenancePlace(id: number): Promise<ProvenancePlaceEntity> {
     return await this.findProvenancePlaceById(id);
   }
 
   async addProvenancePlace(
-    ProvenancePlace: NewProvenancePlaceDto,
+    provenancePlace: NewProvenancePlaceDto,
   ): Promise<ProvenancePlaceEntity> {
-    return await this.provenancePlaceRepository.save(ProvenancePlace);
+    return await this.provenancePlaceRepository.save(provenancePlace);
   }
 
   async updateProvenancePlace(
@@ -42,11 +45,12 @@ export class ProvenancePlaceService {
     });
     if (!newProvenancePlace) {
       throw new NotFoundException(
-        `Le lieu de provenance d'id ${id} n'existe pas !`,
+        `Le lieu de provenance d'id ${id} n'existe pas.`,
       );
     }
     return await this.provenancePlaceRepository.save(newProvenancePlace);
   }
+
   async deleteProvenacePlace(id: number): Promise<ProvenancePlaceEntity> {
     const provenancePlace = await this.findProvenancePlaceById(id);
     return await this.provenancePlaceRepository.remove(provenancePlace);

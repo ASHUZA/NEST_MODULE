@@ -1,50 +1,50 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { NewModeArriveeDto } from './dto/new_mode_arrivee_dto';
-import { ModeArriveeEntity } from './entities/mode-arrivee.entity';
+import { NewArrivalModeDto } from './dto/new_mode_arrivee_dto';
+import { ArrivalModeEntity } from './entities/mode-arrivee.entity';
 
 @Injectable()
-export class ModeArriveeService {
+export class ArrivalModeService {
   constructor(
-    @InjectRepository(ModeArriveeEntity)
-    private modeArriveeRepository: Repository<ModeArriveeEntity>,
+    @InjectRepository(ArrivalModeEntity)
+    private ArrivalModeRepository: Repository<ArrivalModeEntity>,
   ) {}
 
-  async findModeArriveeById(id: number) {
-    const mode_arrivee = await this.modeArriveeRepository.findOne(id);
+  async findArrivalModeById(id: number) {
+    const mode_arrivee = await this.ArrivalModeRepository.findOne(id);
     if (!mode_arrivee) {
       throw new NotFoundException(`Le mode d'arrivee d'id ${id} n'existe pas.`);
     }
     return mode_arrivee;
   }
-  async getMode_arrivees(): Promise<ModeArriveeEntity[]> {
-    return await this.modeArriveeRepository.find();
+  async getMode_arrivees(): Promise<ArrivalModeEntity[]> {
+    return await this.ArrivalModeRepository.find();
   }
-  async getMode_arroiveeById(id: number): Promise<ModeArriveeEntity> {
-    return await this.findModeArriveeById(id);
+  async getMode_arroiveeById(id: number): Promise<ArrivalModeEntity> {
+    return await this.findArrivalModeById(id);
   }
-  async addModeArrivee(
-    ModeArrivee: NewModeArriveeDto,
-  ): Promise<ModeArriveeEntity> {
-    return await this.modeArriveeRepository.save(ModeArrivee);
+  async addArrivalMode(
+    ArrivalMode: NewArrivalModeDto,
+  ): Promise<ArrivalModeEntity> {
+    return await this.ArrivalModeRepository.save(ArrivalMode);
   }
 
-  async updateModeArrivee(
+  async updateArrivalMode(
     id: number,
-    ModeArrivee: NewModeArriveeDto,
-  ): Promise<ModeArriveeEntity> {
-    const newModeArrivee = await this.modeArriveeRepository.preload({
+    ArrivalMode: NewArrivalModeDto,
+  ): Promise<ArrivalModeEntity> {
+    const newArrivalMode = await this.ArrivalModeRepository.preload({
       id,
-      ...ModeArrivee,
+      ...ArrivalMode,
     });
-    if (!newModeArrivee) {
+    if (!newArrivalMode) {
       throw new NotFoundException(`Le mode d'arrivée d'id ${id} n'existe pas.`);
     }
-    return await this.modeArriveeRepository.save(newModeArrivee);
+    return await this.ArrivalModeRepository.save(newArrivalMode);
   }
-  async deleteModeArrivee(id: number): Promise<ModeArriveeEntity> {
-    const ModeArrivee = await this.findModeArriveeById(id);
-    return await this.modeArriveeRepository.remove(ModeArrivee);
+  async deleteArrivalMode(id: number): Promise<ArrivalModeEntity> {
+    const ArrivalMode = await this.findArrivalModeById(id);
+    return await this.ArrivalModeRepository.remove(ArrivalMode);
   }
 }

@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ModeArriveeEntity } from './entities/mode-arrivee.entity';
-import { ModeArriveeController } from './mode-arrivee.controller';
-import { ModeArriveeService } from './mode-arrivee.service';
+import { ArrivalModeEntity } from './entities/mode-arrivee.entity';
+import { ArrivalModeController } from './mode-arrivee.controller';
+import { ArrivalModeService } from './mode-arrivee.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([ModeArriveeEntity])],
-  controllers: [ModeArriveeController],
-  providers: [ModeArriveeService]
+  imports: [TypeOrmModule.forFeature([ArrivalModeEntity])],
+  controllers: [ArrivalModeController],
+  providers: [ArrivalModeService],
 })
-export class ModeArriveeModule {}
+export class ArrivalModeModule {}

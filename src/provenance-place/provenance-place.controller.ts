@@ -12,20 +12,22 @@ import { NewProvenancePlaceDto } from './dto/new_provenance_place_dto';
 import { ProvenancePlaceEntity } from './entities/provenance-place.entity';
 import { ProvenancePlaceService } from './provenance-place.service';
 
-@Controller('provenance-place')
+@Controller('lieu-provenance')
 export class ProvenancePlaceController {
   constructor(private provenancePlaceService: ProvenancePlaceService) {}
 
   @Get()
-  async getAllProvenancePlace(): Promise<ProvenancePlaceEntity[]> {
-    return await this.provenancePlaceService.getProvenancePlace();
+  async getAllProvenancePlaces(): Promise<ProvenancePlaceEntity[]> {
+    return await this.provenancePlaceService.getProvenancePlaces();
   }
+
   @Get('/:id')
-  async getProvenancePlaceById(
+  async getProvenancePlace(
     @Param('id', ParseIntPipe) id: number,
   ): Promise<ProvenancePlaceEntity> {
-    return await this.provenancePlaceService.getProvenancePlaceById(id);
+    return await this.provenancePlaceService.getProvenancePlace(id);
   }
+
   @Post()
   async addProvenancePlace(
     @Body() provenancePlace: NewProvenancePlaceDto,
@@ -34,6 +36,7 @@ export class ProvenancePlaceController {
       provenancePlace,
     );
   }
+
   @Patch('/:id')
   async updateProvenancePlace(
     @Param('id', ParseIntPipe) id: number,
@@ -44,6 +47,7 @@ export class ProvenancePlaceController {
       provenancePlace,
     );
   }
+
   @Delete('/:id')
   async deleteProvenancePlace(
     @Param('id', ParseIntPipe) id: number,

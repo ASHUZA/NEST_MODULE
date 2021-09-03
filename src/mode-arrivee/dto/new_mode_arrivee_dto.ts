@@ -2,7 +2,7 @@
 import { IsNotEmpty, IsString } from 'class-validator';
 
 
-export class NewModeArriveeDto {
+export class NewArrivalModeDto {
   @IsNotEmpty()
   @IsString()
   mode_arrivee_name: string;
