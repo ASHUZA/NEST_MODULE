@@ -14,6 +14,8 @@ import { ReligionModule } from './religion/religion.module';
 import { TribeModule } from './tribe/tribe.module';
 import { VisitDayModule } from './visit-day/visit-day.module';
 import { MaritalStatusModule } from './marital-status/marital-status.module';
+import { NutrinnalVisitModule } from './nutrinnal-visit/nutrinnal-visit.module';
+import { NutritionnalVisitModule } from './nutritionnal-visit/nutritionnal-visit.module';
 
 dotenv.config();
 @Module({
@@ -40,6 +42,8 @@ dotenv.config();
     TribeModule,
     VisitDayModule,
     MaritalStatusModule,
+    NutrinnalVisitModule,
+    NutritionnalVisitModule,
   ],
   controllers: [AppController],
   providers: [AppService],
